@@ -131,4 +131,12 @@ public Pedido(Integer id, Date instante,  Cliente cliente, Endereco enderecoDeEn
 	this.enderecoDeEntrega = enderecoDeEntrega;
 }
 
+public double getValorTotal() {
+	double soma = 0;
+	for (ItemPedido ip : itens) {
+		soma = soma + ip.getSubTotal();
+		
+	}return soma;
+}
+
 }
