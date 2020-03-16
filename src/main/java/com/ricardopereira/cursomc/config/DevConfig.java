@@ -19,9 +19,15 @@ public class DevConfig {
 	private DBService dbService;
 	
 	@Value("${spring.jpa.hibernate.ddl-auto}")
+	private String strategy;
+	
 	
 	@Bean
 	public boolean instantiateDatabase() throws ParseException {
+		
+		if(!"create".equals(strategy)) {
+			return false;
+		}
 		
 		dbService.instantiateDatabase();
 		
